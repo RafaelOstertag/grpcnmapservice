@@ -1,0 +1,30 @@
+syntax="proto3";
+
+package ch.guengel.nmapservice;
+option go_package = "nmapservice";
+option java_package = "ch.guengel.nmapservice";
+
+
+service Nmap {
+    rpc Scan (ScanRequest) returns (ScanReply) {}
+}
+
+message ScanRequest {
+    string host = 1;
+    string portSpec = 2;
+}
+
+message ScanReply {
+    string state = 1;
+    repeated string addresses = 2;
+    repeated string hostnames = 3;
+    repeated Port ports = 4;
+
+    message Port {
+        int32 number = 1;
+        string state = 2;
+        string name = 3;
+    }
+}
+
+
