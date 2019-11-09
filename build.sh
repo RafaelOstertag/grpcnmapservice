@@ -22,12 +22,12 @@ install_protoc_gen_go() {
 
 
 build_go() {
-    protoc --go_out=plugins=grpc:. src/github.com/rafaelostertag/nmapservice/nmap.proto
+    protoc -I schema --go_out=plugins=grpc:. nmap.proto
 }
 
 build_java() {
     mkdir -p src/main/proto
-    cp -f src/github.com/rafaelostertag/nmapservice/*.proto src/main/proto
+    cp -f schema/*.proto src/main/proto
     mvn compile
 }
 
