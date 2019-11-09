@@ -1,4 +1,6 @@
 /.idea/
 /target/
-/src/
+/src/main
 /nmapservice-grpc.iml
+/protoc/
+/go/
