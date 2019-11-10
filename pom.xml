@@ -80,7 +80,7 @@
         <repository>
             <id>webtools-maven</id>
             <name>Webtools Maven Repository</name>
-            <url>https://gizmo.kruemel.home/nexus/repository/webtools-maven/</url>
+            <url>https://colossus.kruemel.home/nexus/repository/webtools-maven/</url>
         </repository>
     </distributionManagement>
 
