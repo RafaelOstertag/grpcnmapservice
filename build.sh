@@ -7,7 +7,7 @@ PROTOC_VERSION=3.10.1
 install_protoc() {
     if [ -d protoc ]
     then
-	return 0
+	    return 0
     fi
 
     mkdir protoc
@@ -22,7 +22,7 @@ install_protoc_gen_go() {
 
 
 build_go() {
-    protoc -I schema --go_out=plugins=grpc:. nmap.proto
+    protoc -I schema --go_out=plugins=grpc:. nmap.proto health.proto
 }
 
 build_java() {
