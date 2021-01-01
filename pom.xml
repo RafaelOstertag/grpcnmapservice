@@ -5,7 +5,7 @@
 
     <groupId>ch.guengel.nmapservice</groupId>
     <artifactId>nmapservice-grpc</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <packaging>jar</packaging>
 
     <name>Nmap Service gRPC</name>
