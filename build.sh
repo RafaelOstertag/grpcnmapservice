@@ -2,7 +2,7 @@
 
 set -eu
 
-PROTOC_VERSION=3.14.1
+PROTOC_VERSION=3.14.0
 
 install_protoc() {
     if [ -d protoc ]

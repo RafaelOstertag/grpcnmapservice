@@ -23,6 +23,7 @@ pipeline {
         stage('Clean') {
             steps {
                 sh 'mvn -B clean'
+                sh 'rm -rf protoc'
             }
         }
 
