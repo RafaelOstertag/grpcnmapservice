@@ -20,13 +20,6 @@ pipeline {
     }
 
     stages {
-        stage('Clean') {
-            steps {
-                sh 'mvn -B clean'
-                sh 'rm -rf protoc'
-            }
-        }
-
         stage("Build") {
             when {
                 branch "master"
@@ -43,8 +36,8 @@ pipeline {
             }
 
             steps {
-                dependencyCheck additionalArguments: '''--suppression dependency-check-suppression.xml''', odcInstallation: 'Latest'
-                dependencyCheckPublisher failedTotalCritical: 1, failedTotalHigh: 5, failedTotalLow: 8, failedTotalMedium: 8, pattern: '', unstableTotalCritical: 0, unstableTotalHigh: 4, unstableTotalLow: 8, unstableTotalMedium: 8
+                sh 'mvn -Psecurity-scan dependency-check:check'
+                dependencyCheckPublisher failedTotalCritical: 1, failedTotalHigh: 5, failedTotalLow: 8, failedTotalMedium: 8, pattern: '**/dependency-check-report.xml', unstableTotalCritical: 0, unstableTotalHigh: 4, unstableTotalLow: 8, unstableTotalMedium: 8
             }
         }
 
