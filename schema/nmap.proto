@@ -1,7 +1,7 @@
 syntax="proto3";
 
 package ch.guengel.nmapservice;
-option go_package = "grpcnmapservice";
+option go_package = "github.com/RafaelOstertag/grpcnmapservice";
 option java_package = "ch.guengel.nmapservice";
 
 

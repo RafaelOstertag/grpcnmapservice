@@ -22,7 +22,7 @@ install_protoc_gen_go() {
 
 
 build_go() {
-    protoc -I schema --go_out=plugins=grpc:. nmap.proto health.proto
+    protoc -I schema --go_out=plugins=grpc:. --go_opt=module=github.com/RafaelOstertag/grpcnmapservice nmap.proto health.proto
 }
 
 build_java() {
