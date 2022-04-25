@@ -1,0 +1,31 @@
+version: 2.1
+
+orbs:
+  c: rafaelostertag/common-orb@1.18.0
+
+workflows:
+  build-any-branch:
+    jobs:
+      - c/maven-build-and-test:
+          name: build-and-test
+          sonar-project-key: "not-used"
+          no-sonar: true
+          no-checkout: true
+          executor: c/java11-build-amd64-machine
+          pre-steps:
+            - checkout
+            - run:
+                name: Create sources
+                command: ./build-java.sh
+          context:
+            - repository-read
+      - c/maven-deploy-artifacts:
+          filters:
+            branches:
+              only:
+                - master
+          name: deploy-maven-artifact
+          requires:
+            - build-and-test
+          context:
+            - maven-repository-write

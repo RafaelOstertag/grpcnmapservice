@@ -5,7 +5,7 @@
 
     <groupId>ch.guengel.nmapservice</groupId>
     <artifactId>nmapservice-grpc</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>Nmap Service gRPC</name>
@@ -20,7 +20,7 @@
         <os-maven-plugin.version>1.6.2</os-maven-plugin.version>
         <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
 
-        <dependency-check-maven.version>6.0.4</dependency-check-maven.version>
+        <dependency-check-maven.version>7.1.0</dependency-check-maven.version>
     </properties>
 
     <dependencies>
@@ -78,12 +78,17 @@
         </plugins>
     </build>
 
-    <distributionManagement>
+<distributionManagement>
         <repository>
-            <id>webtools-maven</id>
-            <name>Webtools Maven Repository</name>
-            <url>https://colossus.kruemel.home/nexus/repository/webtools-maven/</url>
+            <id>rafaelostertag.jfrog.io</id>
+            <name>JFrog Release Repository</name>
+            <url>https://rafaelostertag.jfrog.io/artifactory/maven-release</url>
         </repository>
+        <snapshotRepository>
+            <id>rafaelostertag.jfrog.io</id>
+            <name>JFrog Snapshot Repository</name>
+            <url>https://rafaelostertag.jfrog.io/artifactory/maven-snapshot</url>
+        </snapshotRepository>
     </distributionManagement>
 
     <profiles>
