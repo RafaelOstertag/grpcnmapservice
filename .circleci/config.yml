@@ -1,7 +1,7 @@
 version: 2.1
 
 orbs:
-  c: rafaelostertag/common-orb@1.18.0
+  c: rafaelostertag/common-orb@1.19.0
 
 workflows:
   build-any-branch:
@@ -17,14 +17,23 @@ workflows:
             - run:
                 name: Create sources
                 command: ./build-java.sh
+          post-steps:
+            - persist_to_workspace:
+                root: .
+                paths:
+                  - src
           context:
             - repository-read
       - c/maven-deploy-artifacts:
+          name: deploy-maven-artifact
           filters:
             branches:
               only:
                 - master
-          name: deploy-maven-artifact
+          pre-steps:
+            - checkout
+            - attach_workspace:
+                at: .
           requires:
             - build-and-test
           context:
